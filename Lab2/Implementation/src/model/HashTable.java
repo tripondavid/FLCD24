@@ -30,8 +30,11 @@ public class HashTable {
         try {
             head = array.get(index);
         } catch (IndexOutOfBoundsException ignored) {
-            while (capacity < index)
+            while (capacity <= index)
                 capacity *= 2;
+            for (int i = array.size(); i < capacity; i++) {
+                array.add(null);
+            }
         }
 
         if (head == null) {
